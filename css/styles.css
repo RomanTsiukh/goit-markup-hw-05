@@ -87,8 +87,73 @@ img {
     .site-nav .link.current {color: var(--accent-color);}
 
     .site-nav .link:hover,
-    .site-nav .link:focus
-    {color: var(--accent-color);}
+    .site-nav .link:focus{color: var(--accent-color);}
+
+    /*ПОДЧЕРКИВАНИЕ ДЛЯ li*/
+    
+    /*.site-nav .item:hover::after {
+        display: inline-block;
+        background-color: var(--accent-color);
+        content:"";
+        width: 100%;
+        height: 4px;
+        margin: 0;
+        border-radius: 2px;
+    }*/
+
+    .header .item {
+        display: flex;
+        flex-direction:column;
+    }
+
+    .site-nav .link.current::after {
+        display: block;
+        content:"ххх";
+        background-color: var(--accent-color);
+       
+        width: 100%;
+        height: 4px;
+        margin-top: ;
+        margin-bottom: 0;
+        border-radius: 2px;
+        justify-content: center;
+    }
+
+
+    /*Через абсолют*/
+    /*.site-nav .link.current {
+        position: relative;
+        overflow: hidden;}
+
+    .header-underline {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-radius: 2px;
+
+        width: 100%;
+        height: 4px;
+        background-color: #2196F3;
+        transform: translateY(0);
+        transition: 250ms;
+    }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     .site-nav.list {
         margin-left: 93px;
@@ -514,6 +579,9 @@ img {
         box-sizing: border-box;
         box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
     }
+
+    .card-link:hover .works-card-box-paragraph {transform: translateY(0);}
+
    
     .card .item {
         width: 370px;
@@ -541,22 +609,34 @@ img {
         padding-left: 24px;}
 
 
-
-
-
-    .bbb {
+    .works-card-box {
         position: relative;
-        top: 0;
-        right: 0;
-}
-
-    .aaa {
-        position: absolute;
-        max-width: 322px;
-
+        overflow: hidden;
     }
 
+    .works-card-box-paragraph {
+        position: absolute;
+        top: 0;
+        left: 0;
 
+        width: 100%;
+        height: 100%;
+        background-color: rgba(33, 150, 243, 0.9);
+        transform: translateY(100%);
+        transition: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .works-card-paragraph {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 63px;
+        width: 322px;
+        font-size: 18px;
+        line-height: 1.56;
+        letter-spacing: 0.03em;
+        color: var(--primary-white-color);
+    }
 
 
     .works-title {
@@ -567,14 +647,12 @@ img {
         font-size: 18px;
         line-height: 2;     
         letter-spacing: 0.06em;
-        width: 322px;
-        min-height: 36px;} 
+        } 
 
     .works .defenition {
         margin-top: 0;
         margin-bottom: 0;
         font-size: 16px;
         line-height: 1.87;
-        width: 322px;
-        min-height: 30px;}
+        }
 
