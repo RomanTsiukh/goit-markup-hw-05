@@ -24,11 +24,10 @@
                 </a>
 
                 <ul class="site-nav list">
-                    <li class="item"><a href="" class="link current">Студия
-                        <div class="header-underline"></div>
+                    <li class="site-nav-item"><a href="/" class="site-nav-link current">Студия
                     </a></li>
-                    <li class="item"><a href="./portfolio.html" class="link">Портфолио</a></li>
-                    <li class="item"><a href="" class="link">Контакты</a></li>
+                    <li class="site-nav-item"><a href="./portfolio.html" class="site-nav-link">Портфолио</a></li>
+                    <li class="site-nav-item"><a href="" class="site-nav-link">Контакты</a></li>
                 </ul>
             </nav>
 
@@ -53,9 +52,19 @@
         <section class="hero">
             <div class="conteiner">
                 <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-                <button type="button" class="button"> Заказать услугу</button>
+                <button type="button" class="button" data-modal-open> Заказать услугу</button>
             </div>
         </section>
+
+        <!--Модальное окно-->
+
+        <div class="backdrop" data-modal>
+            <div class="modal"></div>
+        </div>
+
+
+
+
 
     <!--Преимущества (Features)-->
    <section class="feature section">
@@ -64,7 +73,7 @@
             <ul class="feature list">
                 <li class="item-feature">
                     <div class="feature-picture">
-                        <svg class="feature-pirure-icon" width="65,32" hight="70">
+                        <svg class="feature-picture-icon" width="65,32" hight="70">
                             <use href="./images/icons.svg#icon-antena"></use>
                         </svg>
                     </div>
@@ -73,7 +82,7 @@
                 </li>
                 <li class="item-feature">
                     <div class="feature-picture">
-                        <svg class="feature-pirure-icon" width="65,32" hight="70">
+                        <svg class="feature-picture-icon" width="65,32" hight="70">
                             <use href="./images/icons.svg#icon-clock"></use>
                         </svg>
                     </div>
@@ -82,7 +91,7 @@
                 </li>
                 <li class="item-feature">
                     <div class="feature-picture">
-                        <svg class="feature-pirure-icon" width="65,32" hight="70">
+                        <svg class="feature-picture-icon" width="65,32" hight="70">
                             <use href="./images/icons.svg#icon-diagram"></use>
                         </svg>
                     </div>
@@ -91,7 +100,7 @@
                 </li>
                 <li class="item-feature">
                     <div class="feature-picture">
-                        <svg class="feature-pirure-icon" width="65,32" hight="70">
+                        <svg class="feature-picture-icon" width="65,32" hight="70">
                             <use href="./images/icons.svg#icon-astronaut"></use>
                         </svg>
                     </div>
@@ -106,9 +115,9 @@
         <div class="conteiner">
             <h2 class="work section-title">Чем мы занимаемся</h2>
                 <ul class="work list"> 
-                    <li class="item"> <img src="./images/box1.jpg" alt="То что мы делаем"></li>
-                    <li class="item"> <img src="./images/box2.jpg" alt="То что мы делаем"></li>
-                    <li class="item"> <img src="./images/box3.jpg" alt="То что мы делаем"></li>
+                    <li class="work-item desctop"> <img src="./images/box1.jpg" alt="То что мы делаем"></li>
+                    <li class="work-item mobile"> <img src="./images/box2.jpg" alt="То что мы делаем"></li>
+                    <li class="work-item design"> <img src="./images/box3.jpg" alt="То что мы делаем"></li>
                 </ul>
         </div>
    </section>
@@ -371,5 +380,6 @@
             </div> 
         </div>           
    </footer>
+   <script src="./js/modal.js"></script>
 </body>
 </html>
