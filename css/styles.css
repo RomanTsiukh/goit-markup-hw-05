@@ -92,7 +92,12 @@ img {
     }
 
     .site-nav .site-nav-link:hover,
-    .site-nav .site-nav-link:focus{color: var(--accent-color);}
+    .site-nav .site-nav-link:focus{
+        color: var(--accent-color);
+
+        transition: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
 
     .site-nav-link.current::after {
@@ -122,6 +127,8 @@ img {
     .contacts  .link:hover,
     .contacts  .link:focus {
         color: var(--accent-color);
+        transition: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .contacts.list {
@@ -139,8 +146,6 @@ img {
     .contacts .item + .item {margin-left: 30px;}
 
   
-
-    
     /*Hero*/ 
 
     .hero {
@@ -205,6 +210,46 @@ img {
         font-size: 36px;
         line-height: 1.2;
         text-align: center;}
+
+
+  /*Модальное окно*/
+
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 1600px;
+    height: 1024px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    width: 528px;
+    height: 581px;
+    background-color: var(--primary-white-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-btn {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+
+    background: none;
+    border: none;
+}
+
+
+
 
     /*Features*/
 
@@ -466,8 +511,11 @@ img {
     .address .contacts {color: rgba(255, 255, 255, 0.6);}
 
     .address .contacts:hover,
-    .address .link:hover
-     {color: var(--accent-color);}
+    .address .link:hover{
+        color: var(--accent-color);
+        transition: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
     .address .contacts,
     .address .link {
@@ -512,9 +560,17 @@ img {
 
     .footer-icon{fill: #FFFFFF;}
 
-    .footer-social-link:hover {background-color: var(--accent-color);}
+    .footer-social-link:hover {
+        background-color: var(--accent-color);
+        transition: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-    .footer-social-link:hover .footer-icon {background-color: var(--accent-color);}
+    .footer-social-link:hover .footer-icon {
+        background-color: var(--accent-color);
+        transition: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
 
 
@@ -524,27 +580,7 @@ img {
 
 
 
-  /*Модальное окно*/
 
-  .backdrop {
-      position: fixed;
-      top: 0;
-      width: 0;
-
-      width: 1600px;
-      height: 1024px;
-      background-color: rgba(0, 0, 0, 0.2);
-  }
-
-  .modal {
-      width: 528px;
-      height: 581px;
-      background-color: var(--primary-white-color);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  }
 
 
 
@@ -573,7 +609,9 @@ img {
     .filters  .button-filters:hover,
     .filters  .button-filters:focus{
          color: var( --primary-white-color);
-         background-color: var(--accent-color);}
+         background-color: var(--accent-color);
+         transition: 250ms;
+         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);}
 
     /*Works*/
     /*Works filters*/
@@ -601,6 +639,9 @@ img {
              background-color: var(--accent-color);
              box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
              border-radius: 4px;
+
+             transition: 250ms;
+             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         }
         
     .samples.conteiner{
