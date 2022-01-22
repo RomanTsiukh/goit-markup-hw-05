@@ -84,6 +84,8 @@ img {
         line-height: 1.1;
         letter-spacing: 0.02em;
         text-decoration: none;
+
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .site-nav .site-nav-link.current {
@@ -91,24 +93,21 @@ img {
         position: relative;
     }
 
-    .site-nav .site-nav-link:hover,
-    .site-nav .site-nav-link:focus{
-        color: var(--accent-color);
-
-        transition: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-
     .site-nav-link.current::after {
         position: absolute;
         content: "";
         bottom: 0;
         right: 0;
+
         background-color: var(--accent-color);
         width: 100%;
         height: 4px;
         border-radius: 2px;
+    }
+
+    .site-nav .site-nav-link:hover,
+    .site-nav .site-nav-link:focus{
+        color: var(--accent-color);
     }
 
     .site-nav.list {
@@ -122,13 +121,13 @@ img {
         text-decoration: none;
         color: var(--primary-text-color);
         align-items: center;
+
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .contacts  .link:hover,
     .contacts  .link:focus {
         color: var(--accent-color);
-        transition: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .contacts.list {
@@ -146,7 +145,7 @@ img {
     .contacts .item + .item {margin-left: 30px;}
 
   
-    /*Hero*/ 
+/*---Hero---*/ 
 
     .hero {
         text-align: center;
@@ -214,7 +213,7 @@ img {
 
   /*Модальное окно*/
 
-  .backdrop {
+.backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -222,6 +221,7 @@ img {
     width: 1600px;
     height: 1024px;
     background-color: rgba(0, 0, 0, 0.2);
+    transition: opacity 2500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -434,9 +434,16 @@ img {
 
     .social-icon{fill: #afb1b8;}
 
-    .social-link:hover {background-color: var(--accent-color);}
-    .social-link:hover .social-icon {background-color: var(--accent-color);}    
-    .social-link:hover .social-icon {fill: #FFFFFF;}
+    .social-link:hover, .social-link:focus {
+        background-color: var(--accent-color);
+    }
+    
+    .social-link:hover .social-icon,
+    .social-link:focus .social-icon {
+        background-color: var(--accent-color);
+        fill: #FFFFFF;
+    }    
+
 
 
     /*Clients*/
@@ -510,8 +517,8 @@ img {
 
     .address .contacts {color: rgba(255, 255, 255, 0.6);}
 
-    .address .contacts:hover,
-    .address .link:hover{
+    .address .contacts:hover, .address .contacts:focus,
+    .address .link:hover, .address .link:focus{
         color: var(--accent-color);
         transition: 250ms;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -560,16 +567,14 @@ img {
 
     .footer-icon{fill: #FFFFFF;}
 
-    .footer-social-link:hover {
+    .footer-social-link:hover,
+    .footer-social-link:focus {
         background-color: var(--accent-color);
-        transition: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .footer-social-link:hover .footer-icon {
+    .footer-social-link:hover .footer-icon,
+    .footer-social-link:focus .footer-icon {
         background-color: var(--accent-color);
-        transition: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
 
@@ -663,12 +668,14 @@ img {
         display: flex;
         flex-wrap: wrap;}
 
-    .card-link:hover{
+    .card-link:hover,
+    .card-link:focus{
         box-sizing: border-box;
         box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
     }
 
-    .card-link:hover .works-card-box-paragraph {
+    .card-link:hover .works-card-box-paragraph,
+    .card-link:focus .works-card-box-paragraph {
         transform: translateY(0);
         opacity: 1;
     }
