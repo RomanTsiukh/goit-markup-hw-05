@@ -200,7 +200,8 @@ img {
         font-size: 16px;
         line-height: 1.88;}
 
-    /*Section*/
+/*Section*/
+
     .section .section-title {color: var(--title-text-color);}
     
     .section-title {
@@ -211,9 +212,9 @@ img {
         text-align: center;}
 
 
-  /*Модальное окно*/
+/*Модальное окно*/
 
-.backdrop {
+  .backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -221,7 +222,9 @@ img {
     width: 1600px;
     height: 1024px;
     background-color: rgba(0, 0, 0, 0.2);
-    transition: opacity 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -229,14 +232,25 @@ img {
     pointer-events: none;
 }
 
+.backdrop.is-hidden .modal{
+    transform: translate(-50%, -50%) scale(1.2);
+   
+    visibility: hidden;
+}
+
 .modal {
-    width: 528px;
-    height: 581px;
-    background-color: var(--primary-white-color);
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+
+    width: 528px;
+    height: 581px;
+    background-color: var(--primary-white-color);
+
+    visibility: visible;
+
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-btn {
@@ -247,8 +261,6 @@ img {
     background: none;
     border: none;
 }
-
-
 
 
     /*Features*/
@@ -288,14 +300,13 @@ img {
         color: var(--title-text-color);
         font-weight: 700;
         font-size: 14px;
-        line-height: 1.1;}
-
-    /*.feature-picture svg{width: 20%;}*/
+        line-height: 1.1;
+    }
 
     .paragraph-features {margin: 0;}
 
 
-    /*Work*/
+/*---Work---*/
 
     .work.section {
         min-width: 386px;
@@ -313,17 +324,32 @@ img {
         position: relative;
         height: 294px;
         width: 370px;
+    }
 
-        text-align: center;
+    .work-item-box {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
 
-        color: var(--primary-white-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(47, 48, 58, 0.8);
+    }
+
+    .work-item-paragraph{
+        margin: 0;
         font-weight: 700;
         font-size: 14px;
         line-height: 1.14;
+        color: var(--primary-white-color);
         text-transform: uppercase;
     }
-
-    .work-item.desctop::after {
+    
+    /*Альтернативный вариант*/
+    /*.work-item.desctop::after {
         position: absolute;
         content: "Десктопные приложения";
 
@@ -357,7 +383,7 @@ img {
         height: 70px;
         background-color: rgba(47, 48, 58, 0.8);
         padding-top: 27px;
-    }
+    }*/
 
 
 
@@ -430,18 +456,26 @@ img {
         border-radius: 50%;
         display: flex;
         justify-content: center;
-        align-items: center;}
+        align-items: center;
+    
+        
+    }
 
-    .social-icon{fill: #afb1b8;}
+    .social-icon{fill: #afb1b8;
+        
+    }
 
     .social-link:hover, .social-link:focus {
         background-color: var(--accent-color);
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .social-link:hover .social-icon,
     .social-link:focus .social-icon {
         background-color: var(--accent-color);
         fill: #FFFFFF;
+        transition: background-color 2500ms cubic-bezier(0.4, 0, 0.2, 1),
+                    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }    
 
 
@@ -474,13 +508,22 @@ img {
         
         border: 1px solid #AFB1B8;
         box-sizing: border-box;
-        border-radius: 4px;}
+        border-radius: 4px;
 
-    .client-item-link-icon{fill:#afb1b8}
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-    .client-item-link:hover .client-item-link-icon {fill: var(--accent-color);}
-    .client-item-link:hover {border: 1px solid var(--accent-color);}
+    .client-item-link-icon{
+        fill:#afb1b8;
+        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
+    .client-item-link:hover .client-item-link-icon,
+    .client-item-link:focus .client-item-link-icon
+    {fill: var(--accent-color);}
+
+    .client-item-link:hover, 
+    .client-item-link:focus {border: 1px solid var(--accent-color);}
 
     .clients .client-list {display: flex;}
 
@@ -504,7 +547,8 @@ img {
  
     .footer.logo {
         display: inline-block;
-        margin-bottom: 20px;}
+        margin-bottom: 20px;
+    }
 
     .address .item {margin-bottom: 9px;}
     .address .item:nth-last-child(-n+1) {margin-bottom: 0;}
@@ -513,19 +557,20 @@ img {
 
     .logo-studio-footer {color: var(--primary-white-color);}
 
-    .address .link {color: var(--primary-white-color);}
-
-    .address .contacts {color: rgba(255, 255, 255, 0.6);}
-
-    .address .contacts:hover, .address .contacts:focus,
-    .address .link:hover, .address .link:focus{
-        color: var(--accent-color);
-        transition: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    .address .link {
+        color: var(--primary-white-color);
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .address .contacts,
-    .address .link {
+    .address .contacts {
+        color: rgba(255, 255, 255, 0.6);
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .address .contacts:hover, .address .contacts:focus,
+    .address .link:hover, .address .link:focus{color: var(--accent-color);}
+
+    .address .contacts, .address .link {
          text-decoration: none;
          font-style: normal;}
 
@@ -560,7 +605,9 @@ img {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: rgba(255, 255, 255, 0.1);}
+        background: rgba(255, 255, 255, 0.1);
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)
+    }
 
     .footer-container {display: flex;}
     .footer-box {flex-direction: column;}
@@ -568,29 +615,7 @@ img {
     .footer-icon{fill: #FFFFFF;}
 
     .footer-social-link:hover,
-    .footer-social-link:focus {
-        background-color: var(--accent-color);
-    }
-
-    .footer-social-link:hover .footer-icon,
-    .footer-social-link:focus .footer-icon {
-        background-color: var(--accent-color);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .footer-social-link:focus {background-color: var(--accent-color);}
 
 
 
@@ -600,59 +625,22 @@ img {
 
 
 /*-------------------Portfolio----------------*/
-
-    /*Button potfolio*/
-
-    .filters .button-filters {
-        font-family: inherit;
-        border: 0;
-        cursor: pointer;
-        border-radius: 4px;
-        background-color: #F5F4FA;
-        color: var(--title-text-color);}
-
-    .filters  .button-filters:hover,
-    .filters  .button-filters:focus{
-         color: var( --primary-white-color);
-         background-color: var(--accent-color);
-         transition: 250ms;
-         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);}
-
-    /*Works*/
-    /*Works filters*/
-        /*Button potfolio*/
-
-        .filters.list {
-            display: flex;
-            justify-content: center;
-            min-width: 611px;
-            margin-bottom: 50px;}
-
-        .filters .item + .item {margin-left: 8px;}
-
-        .filters .button-filters {
-            font-family: inherit; 
-            cursor: pointer;
-            border-radius: 4px;
-            background-color: #F5F4FA;
-            color: var(--title-text-color);
-        }
-    
-        .filters  .button-filters:hover,
-        .filters  .button-filters:focus{
-             color: var( --primary-white-color);
-             background-color: var(--accent-color);
-             box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
-             border-radius: 4px;
-
-             transition: 250ms;
-             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
+    /*---Works---*/
+   
     .samples.conteiner{
         margin-left: auto;
         margin-right: auto;
     }
+
+    .filters.list {
+        display: flex;
+        justify-content: center;
+        min-width: 611px;
+        margin-bottom: 50px;}
+
+    .filters .item + .item {margin-left: 8px;}
+
+/*Button potfolio*/
 
     .button-filters {
         padding: 6px 22px;
@@ -661,8 +649,36 @@ img {
         font-weight: 500;
     }
 
+    .filters .button-filters {
+        font-family: inherit;
+        border: 0;
+        cursor: pointer;
+        border-radius: 4px;
+        background-color: #F5F4FA;
+        color: var(--title-text-color);
+    
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-    /*Works card*/
+    .filters .button-filters:hover,
+    .filters  .button-filters:focus{
+        color: var( --primary-white-color);
+        background-color: var(--accent-color);
+        box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+        }
+
+    .filters .button-filters {
+        font-family: inherit; 
+        cursor: pointer;
+        border-radius: 4px;
+        background-color: #F5F4FA;
+        color: var(--title-text-color);
+    }
+
+
+    
+/*--Works card portfolio--*/
 
     .card.list {
         display: flex;
@@ -703,8 +719,8 @@ img {
     .item .card-info {
         padding-top: 20px;
         padding-bottom: 20px;
-        padding-left: 24px;}
-
+        padding-left: 24px;
+    }
 
     .works-card-box {
         position: relative;
@@ -719,10 +735,11 @@ img {
         width: 100%;
         height: 100%;
         background-color: rgba(33, 150, 243, 0.9);
-        transform: translateY(100%);
-        transition: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
         opacity: 0;
+        transform: translateY(100%);
+        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .works-card-paragraph {
@@ -735,7 +752,6 @@ img {
         letter-spacing: 0.03em;
         color: var(--primary-white-color);
     }
-
 
     .works-title {
         margin-top: 0;
